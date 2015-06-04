@@ -19,10 +19,17 @@ directory '/var/git_test' do
 end
 
 
-# First try 
+# Get the main branch
 git '/var/git_test/master' do
-	repository 'git@github.com:alainchiasson/chef_git_spike.git'
+	repository 'https://github.com/alainchiasson/chef_git_spike'
 	reference 'master'
+	action :sync
+end
+
+# Get a Branch that does not exist
+git '/var/git_test/crap' do
+	repository 'https://github.com/alainchiasson/chef_git_spike'
+	reference 'crap'
 	action :sync
 end
 
