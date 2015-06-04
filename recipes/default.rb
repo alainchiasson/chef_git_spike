@@ -40,6 +40,14 @@ git '/var/git_test/develop_to_local' do
 	action :sync
 end
 
+# Get the master branch - description will have "master" - but branch will be deploy
+git '/var/git_test/tag_1.0.0' do
+	repository 'https://github.com/alainchiasson/chef_git_spike'
+	reference '1.0.0'
+	action :sync
+end
+
+
 # # Get a Branch that does not exist - thi s will fail !!
 # git '/var/git_test/crap' do
 # 	repository 'https://github.com/alainchiasson/chef_git_spike'
