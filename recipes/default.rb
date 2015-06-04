@@ -47,6 +47,14 @@ git '/var/git_test/tag_1.0.0' do
 	action :sync
 end
 
+# Get the master branch - description will have "master" - gut 
+git '/home/vagrant/user' do
+	repository 'https://github.com/alainchiasson/chef_git_spike'
+	reference 'master'
+	user 'vagrant'
+	group 'vagrant'
+	action :sync
+end
 
 # # Get a Branch that does not exist - thi s will fail !!
 # git '/var/git_test/crap' do

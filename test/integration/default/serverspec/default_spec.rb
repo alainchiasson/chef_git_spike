@@ -9,8 +9,8 @@ describe 'chef_git_spike::default' do
   	describe file('/var/git_test/master/description.txt') do
   		it { should be_a_file }
   		its(:content) { should match /master/ }
-		its(:content) { should_not match /develop/ } 
-		its(:content) { should_not match /1.0.0/ } 		
+		  its(:content) { should_not match /develop/ } 
+		  its(:content) { should_not match /1.0.0/ } 		
   	end
 
   end
@@ -46,6 +46,23 @@ describe 'chef_git_spike::default' do
   		its(:content) { should match /master/ }
   		its(:content) { should_not match /develop/ }
   	end
+
+  end
+
+  context 'modifying the user and group paramters' do
+
+    describe file('/home/vagrant') do
+      it { should be_writable.by_user('vagrant') }
+      it { should be_owned_by('vagrant')}
+    end
+
+    describe file('/home/vagrant/user/description.txt') do
+      it { should be_owned_by('vagrant')}
+      it { should be_a_file }
+      its(:content) { should match /master/ }
+      its(:content) { should_not match /develop/ } 
+      its(:content) { should_not match /1.0.0/ }    
+    end
 
   end
 

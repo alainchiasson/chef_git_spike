@@ -14,6 +14,7 @@ As part of this - the structure of this giot repo is as important to the chef sc
 - Synchronizing a different branch
 - Synchronizing the master branch, but changing the local branch name
 - Synchronizing a tagged commit point
+- Synchronizing using a differnet user
 
 For most of these - the file description.txt is changed to reflect the expected results, and tehre is a coresponding serverspec test to show that all is ok.
 
